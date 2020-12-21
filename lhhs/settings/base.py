@@ -12,13 +12,39 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import json
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
+from django.core.exceptions import ImproperlyConfigured
+# JSON-based secrets module
+with open('/usr/local/secret/bradrice/db.json') as f:
+    secrets = json.load(f)
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+def get_secret(setting, secrets=secrets):
+    '''Get the secret variable or return explicit exception.''' 
+    try: 
+        return secrets[setting]
+    except KeyError: 
+        error_msg = 'Set the {0} environment, variable'.format(setting) 
+        raise ImproperlyConfigured(error_msg) 
+
+SECRET_KEY = get_secret('SECRET_KEY')
+
+DB_USER = get_secret('DATABASE_USER')
+DB_NAME = get_secret('DATABASE_NAME')
+DB_PW = get_secret('DATABASE_PASSWORD')
+_MEDIA_URL = get_secret("MEDIAURL")
+_MEDIA_ROOT = get_secret("MEDIAROOT")
+_STATIC_URL = get_secret("STATICURL")
+_STATIC_ROOT = get_secret("STATICROOT")
+EMAILHOST = get_secret("EMAILHOST")
+EMAILUSER = get_secret("EMAILUSER")
+SMTPPORT = get_secret("SMTPPORT")
+EMAILPASSWORD = get_secret("EMAILPASSWORD")
+MAILGUNAPIKEY = get_secret("MAILGUNAPIKEY")
+DEFAULTEMAILUSER = get_secret("DEFAULTEMAILUSER")
 
 
 # Application definition
@@ -27,7 +53,9 @@ INSTALLED_APPS = [
     'home',
     'search',
     'flex',
+    'standard',
     'streams',
+    'nav',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
@@ -89,10 +117,21 @@ WSGI_APPLICATION = 'lhhs.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PW,
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
