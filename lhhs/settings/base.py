@@ -19,7 +19,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 from django.core.exceptions import ImproperlyConfigured
 # JSON-based secrets module
-with open('/usr/local/secret/bradrice/db.json') as f:
+with open('/usr/local/secret/lhhs/db.json') as f:
     secrets = json.load(f)
 
 def get_secret(setting, secrets=secrets):
