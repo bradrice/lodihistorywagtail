@@ -29,7 +29,7 @@ class SimpleRichtextBlock(blocks.RichTextBlock):
         self, required=True, help_text=None, editor="default", features=None, **kwargs
     ):  # noqa
         super().__init__(**kwargs)
-        self.features = ["bold", "italic", "link", "h1", "h2", "h3", "h4", "h5", "p", "ul", "ol", "hr", "br"]
+        self.features = ["bold", "italic", "link", "h1", "h2", "h3", "h4", "h5", "p", "ul", "ol", "hr", "br", "media"]
 
     class Meta:  # noqa
         template = "streams/richtext_block.html"
