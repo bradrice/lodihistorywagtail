@@ -108,14 +108,35 @@
     font-family: "CormorantGaramond-Bold";
     font-style: normal;
     font-weight: 300;
-    src: local('CormorantGaramond-Bold'), local('Cormorant Garamond-Bold'), url(https://static.lodiharrisvillehistorical.org/fonts/CormorantGaramond-Bold.ttf) format('ttf');
+    src: url('https://static.lodiharrisvillehistorical.org/fonts/CormorantGaramond-Bold.ttf') format('truetype');
   }
 
-.display-4 .banner-title {
+  .navbar {
+      background-color: #D4BA6A;
+      padding: 0;
+  }
+
+  .navbar a {
+    color: #29506D;
+}
+
+  .navbar li {
+      padding: .5em 1em;
+  }
+
+.navbar li.active {
+    background-color: #29506D;
+    color: #fff;
+}
+
+.navbar li.active a {
+    color: #fff;
+}
+  
+
+.display-4 {
     font-family: 'CormorantGaramond-Bold', serif;
     font-weight: 600;
-    color: yellow;
-    text-shadow: 2px 2px 4px black;
 }
 
 .page-title {
@@ -133,7 +154,9 @@ h1, h2, h3 {
     background-size: contain; 
     background-repeat: no-repeat;
     background-position: center; */
-    background-color: #294F6D;
+    background-color: #718EA4;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
 
 .banner-sub {
