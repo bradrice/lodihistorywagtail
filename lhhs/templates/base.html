@@ -26,6 +26,8 @@
     </head>
     {% load menus_tags %}
     <body class="{% block body_class %}{% endblock %}">
+        <div class="wrapper">
+
       {% get_menu "main_menu" as navigation %}
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -43,13 +45,16 @@
             </div>
           </nav>
         {% wagtailuserbar %}
+            <div class="main">
         {% block content %}{% endblock %}
+        </div>
         {% block footer %}
         <div class="footer">
             <h3>Mission</h3>
 
             <p>The goal of the Lodi Harrisville Historical Society Inc. is to locate, collect, preserve and interpret the local area history with accuracy and integrity. In doing so, the Lodi Harrisville region of Ohio will have an identifiable position in american’s past, present and future.</p>
         </div>
+    </div>
         {% endblock %}
 
         {# Global javascript #}

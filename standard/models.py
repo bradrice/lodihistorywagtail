@@ -17,7 +17,7 @@ class StandardPage(Page):
     content = StreamField(
         [
             ("title_and_text", blocks.TitleAndTextBlock()),
-            ("simple_richtext", blocks.SimpleRichtextBlock()),
+            ("simple_richtext", blocks.RichtextBlock()),
         ],
         null=True,
         blank=True,

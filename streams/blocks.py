@@ -1,5 +1,6 @@
 # streams/blocks.py
 from wagtail.core import blocks
+from wagtail.documents.blocks import DocumentChooserBlock
 
 
 class TitleAndTextBlock(blocks.StructBlock):
@@ -35,3 +36,16 @@ class SimpleRichtextBlock(blocks.RichTextBlock):
         template = "streams/richtext_block.html"
         icon = "edit"
         label = "Simple RichText"
+
+
+class DocBlock(blocks.StreamBlock):
+    """Document chooser"""
+    
+    title = blocks.CharBlock(required=True, help_text="Add your title")
+    # doc = DocumentChooserBlock(required=True)
+    # link = blocks.CharBlock(required=True, help_text="Add your title")
+
+    class Meta:  # noqa
+        # template = "streams/title_and_link_block.html"
+        icon = "edit"
+        label = "Document Link"
