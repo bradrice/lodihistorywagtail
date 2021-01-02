@@ -172,7 +172,7 @@ h1.banner, h2.banner {
     font-weight: 700;
 }
 
-.wrap {
+.wrap, .wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -205,4 +205,13 @@ h1.banner, h2.banner {
 
 a.doc-link {
     font-size: 1.5rem;
+}
+
+.photo-list-block {
+    border-bottom: 1px solid #496D89;
+    margin-bottom: 1rem;
+}
+
+.main-body {
+    margin: 1rem;
 }

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block content %}
+    <div class="page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h1 class="display-4">{{ self.title }}</h1>
+                    {% if self.subtitle %}
+                    <div class="lead">
+                     {{ self.subtitle }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-body">
+        <div class="row">
+            {% for photo in photos %}
+            <div class="col-sm-4">
+            {% image photo max-400x300 as pimage %}
+            <div class="card">
+                <img src="{{ pimage.url}}" alt="{{pimage.title}}" class="card-img-top"/>
+                {% if photo.caption %}
+
+                <div class="card-body">
+                    <p>{{photo.caption}}</p>    
+                </div>
+                {% endif %}
+
+            </div>
+           
+            </div>
+            {% endfor %}
+        </div>
+    </div> 
+{% endblock %} 

@@ -56,8 +56,11 @@ INSTALLED_APPS = [
     'standard',
     'streams',
     'nav',
+    'photos',
+    'django_social_share',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
+    'wagtail.contrib.routable_page',
     'wagtail.embeds',
     'wagtail.sites',
     'wagtail.users',
@@ -205,3 +208,5 @@ WAGTAIL_SITE_NAME = "lhhs"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+WAGTAILIMAGES_IMAGE_MODEL = 'photos.Photo'

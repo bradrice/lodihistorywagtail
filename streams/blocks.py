@@ -1,6 +1,8 @@
 # streams/blocks.py
 from wagtail.core import blocks
 from wagtail.documents.blocks import DocumentChooserBlock
+from wagtail.images.blocks import ImageChooserBlock
+from wagtail.snippets.blocks import SnippetChooserBlock
 
 
 class TitleAndTextBlock(blocks.StructBlock):
@@ -49,3 +51,16 @@ class DocBlock(blocks.StreamBlock):
         # template = "streams/title_and_link_block.html"
         icon = "edit"
         label = "Document Link"
+
+
+class PhotoCategoryBlock(blocks.StructBlock):
+
+    heading = blocks.CharBlock(form_classname="full title")
+    paragraph = blocks.RichTextBlock()
+    image = ImageChooserBlock(required=False)
+    category = SnippetChooserBlock('photos.PhotoCategory', max_count=1)
+
+    class Meta:  # noqa
+        template = "streams/photo_category_block.html"
+        icon = "edit"
+        label = "Photo category block"
