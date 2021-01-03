@@ -52,9 +52,17 @@
         </div>
         {% block footer %}
         <div class="footer">
-            <h3>Mission</h3>
-
-            <p>The goal of the Lodi Harrisville Historical Society Inc. is to locate, collect, preserve and interpret the local area history with accuracy and integrity. In doing so, the Lodi Harrisville region of Ohio will have an identifiable position in american’s past, present and future.</p>
+            <div class="row">
+                <div class="col-sm-10">
+                    <h3>Mission</h3>
+                    <p>The goal of the Lodi Harrisville Historical Society Inc. is to locate, collect, preserve and interpret the local area history with accuracy and integrity. In doing so, the Lodi Harrisville region of Ohio will have an identifiable position in american’s past, present and future.</p>
+                </div>
+                <div class="col-sm-2">
+                    <p>Visit our Facebook page</p>
+                    <p><a href="https://www.facebook.com/lodiharrisvilehistory"><img src={% static 'images/facebook.png' %} /></a></p>
+                </div>
+            </div>
+            
         </div>
     </div>
         {% endblock %}

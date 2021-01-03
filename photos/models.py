@@ -1,5 +1,5 @@
 from django.db import models
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django import forms
 from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField, StreamField
@@ -12,6 +12,7 @@ from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from wagtail.snippets.models import register_snippet
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.contrib.routable_page.models import route, RoutablePageMixin
+from wagtail.contrib.redirects.models import Redirect
 
 
 @register_snippet
@@ -99,7 +100,7 @@ class PhotosListingPage(RoutablePageMixin, Page):
             # This is an additional check.
             # If the category is None, do something. Maybe default to a particular category.
             # Or redirect the user to /blog/ ¯\_(ツ)_/¯
-            pass
+            return redirect('/photos')
 
         photos = Photo.objects.filter(category=category.id)
         context["photos"] = photos

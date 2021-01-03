@@ -1,6 +1,6 @@
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
-<div class="container mb-sm-1 mt-sm-1 photo-list-block">
+<div class="container-fluid mb-sm-1 mt-sm-1 photo-list-block">
     <div class="row">
         <div class="col-sm-12">
             <h2>{{ self.heading }}</h2>
@@ -9,12 +9,11 @@
                 <div class="col-sm-6">
                     {% image self.image max-320x320 as photo %}
                     <img src="{{ photo.url}}" alt="{{photo.title}}" class="img-photo"/>
-                    <p>{{self.image.collection}}</p>
 
                     <!-- <p class="caption">{{self.image.caption}}</p> -->
                 </div>
             </div>
-            <p><a class="btn btn-primary" href="photos/photo-list/>{{ self.category }}">View images</a></p>
+            <p><a class="btn btn-primary" href="/photos/collection/{{ self.category.slug }}">View images</a></p>
         </div>
     </div>
 </div> 

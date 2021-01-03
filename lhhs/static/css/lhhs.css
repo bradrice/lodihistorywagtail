@@ -189,7 +189,7 @@ h1.banner, h2.banner {
 .footer {
     border-top: 1px solid #aaa;
     padding: 1em;
-    text-align: center;
+    text-align: left;
 }
 
 .img-def {
