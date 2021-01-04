@@ -1,4 +1,5 @@
 from django.db import models
+from wagtail.core.models import Collection
 from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField, StreamField
 from streams import blocks
@@ -14,6 +15,7 @@ class ArticleListingPage(RoutablePageMixin, Page):
     """Article listing page"""
 
     template = "article/article_page.html"
+
 
     content = StreamField(
         [
@@ -37,11 +39,14 @@ class ArticleListingPage(RoutablePageMixin, Page):
 
     @route(r"^$", name="collection_view")
     def collection_view(self, request):
-        """Find blog posts based on a category."""
-        context = self.get_context(request)
 
-        context['documents'] = Document.objects.all()
-        print(context)
+        """Find blog posts based on a category."""
+        context = super().get_context(request)
+        # context = self.get_context(request)
+
+        collection_id = Collection.objects.get(name='articles').id
+        context['documents'] = Document.objects.filter(collection=collection_id)
+        print(context['documents'][0].collection)
         return render(request, "article/article_page.html", context)
 
     
