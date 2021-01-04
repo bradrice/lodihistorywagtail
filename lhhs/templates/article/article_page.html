@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load static %}   
+
+
+{% block content %}
+    <div class="page-title">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h1 class="display-4">{{ self.title }}</h1>
+                    {% if self.subtitle %}
+                    <div class="lead">
+                     {{ self.subtitle }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-body">
+        <div class="row">
+            <div class="col-sm-12">
+                {{self.content}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 offset-2">
+                <ul class="list-group">
+                    {% for doc in documents %}
+                    <li class="list-group-item list-group-item-action"><a href="{{ doc.url }}" target="_blank"><img src='{% static "images/google-docs.png"%}'/> {{ doc.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %} 
+

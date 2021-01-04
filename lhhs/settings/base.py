@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'streams',
     'nav',
     'photos',
+    'articles',
     'django_social_share',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
