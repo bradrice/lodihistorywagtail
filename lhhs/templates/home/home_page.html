@@ -9,7 +9,7 @@
 </div>
     <div class="wrap">
         <div class="content">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col banner-image";>
                         {% image page.banner_image width-600 as banner_image %}
@@ -19,10 +19,10 @@
                 </div>
 
                 <div class="row">
-                    <div class="col">
+                    <div class="col-sm-6">
                         {{ self.left_col | richtext }}
                     </div>
-                    <div class="col">
+                    <div class="col-sm-6">
                         {{ self.right_col | richtext }}
                     </div>
                 </div>

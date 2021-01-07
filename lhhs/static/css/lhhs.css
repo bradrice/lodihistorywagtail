@@ -201,6 +201,8 @@ h1.banner, h2.banner {
 
 .banner-image {
     margin-bottom: 12px;
+    border-bottom: 2px solid #FFC2AA;
+    padding: .25rem;
 }
 
 a.doc-link {
