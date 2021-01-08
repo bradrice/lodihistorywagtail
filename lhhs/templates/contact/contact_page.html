@@ -1,8 +1,9 @@
-# contact_page.html
 {% extends 'base.html' %}
 {% load wagtailcore_tags %}
+{% load widget_tweaks %}
 
 {% block content %}
+<div class="main-body">
     <h1>{{ page.title }}</h1>
     <p>
         {{ self.intro|richtext }}
@@ -10,12 +11,22 @@
 
     <form action="{% pageurl page %}" method="POST">
         {% csrf_token %}
-        <ul>
+        <!-- <ul>
             {{ form.as_ul }}
-        </ul>
+        </ul> -->
+        {% for field in form %}
+    <div class="form-group">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field | add_class:"form-control" }}
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+    </div>
+{% endfor %}
 
-        <button type="submit">
+        <button type="submit" class='btn btn-primary'>
             Submit Form
         </button>
     </form>
+</div>
 {% endblock %}

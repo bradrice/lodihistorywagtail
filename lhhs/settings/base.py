@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'modelcluster',
     'taggit',
+    'widget_tweaks',
 
     'django.contrib.admin',
     'django.contrib.auth',
