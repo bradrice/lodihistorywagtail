@@ -12,7 +12,7 @@ from wagtail.contrib.forms.models import (
     AbstractEmailForm,
     AbstractFormField
 )
-from wagtailcaptcha.models import WagtailCaptchaEmailForm
+# from wagtailcaptcha.models import WagtailCaptchaEmailForm
 
 
 class FormField(AbstractFormField):
@@ -23,7 +23,7 @@ class FormField(AbstractFormField):
     )
 
 
-class ContactPage(WagtailCaptchaEmailForm):
+class ContactPage(AbstractEmailForm):
 
     template = "contact/contact_page.html"
     # This is the default path.
