@@ -10,7 +10,10 @@ except ImportError:
     pass
 
 # SECURITY WARNING: define the correct hosts in production!
-ALLOWED_HOSTS = ['*'] 
+ALLOWED_HOSTS = [
+    'static.lodiharrisvillehistorical.org',
+    'media.lodiharrisvillehistorical.org'
+    ] 
 
 ANYMAIL = {
     # (exact settings here depend on your ESP...)
