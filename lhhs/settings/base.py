@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'photos',
     'articles',
     'contact',
+    'anymail',
     'django_social_share',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
