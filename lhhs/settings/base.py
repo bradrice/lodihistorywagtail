@@ -45,6 +45,8 @@ SMTPPORT = get_secret("SMTPPORT")
 EMAILPASSWORD = get_secret("EMAILPASSWORD")
 MAILGUNAPIKEY = get_secret("MAILGUNAPIKEY")
 DEFAULTEMAILUSER = get_secret("DEFAULTEMAILUSER")
+RECAPTCHA_SITE_KEY = get_secret("CAPTCHA_SITE_KEY")
+CAPTCHA_SECRET_KEY = get_secret("CAPTCHA_SECRET_KEY")
 
 
 # Application definition
@@ -83,6 +85,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'captcha',
+    'wagtailcaptcha'
 ]
 
 MIDDLEWARE = [
@@ -102,6 +107,7 @@ ROOT_URLCONF = 'lhhs.urls'
 
 TEMPLATES = [
     {
+
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(PROJECT_DIR, 'templates'),
@@ -213,3 +219,7 @@ WAGTAIL_SITE_NAME = "lhhs"
 BASE_URL = 'http://example.com'
 
 WAGTAILIMAGES_IMAGE_MODEL = 'photos.Photo'
+
+RECAPTCHA_PUBLIC_KEY = RECAPTCHA_SITE_KEY
+RECAPTCHA_PRIVATE_KEY = CAPTCHA_SECRET_KEY
+NOCAPTCHA = True

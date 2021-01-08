@@ -11,8 +11,7 @@ except ImportError:
 
 # SECURITY WARNING: define the correct hosts in production!
 ALLOWED_HOSTS = [
-    'static.lodiharrisvillehistorical.org',
-    'media.lodiharrisvillehistorical.org'
+    '.lodiharrisvillehistorical.org'
     ] 
 
 ANYMAIL = {
