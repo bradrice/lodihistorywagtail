@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'articles',
     'contact',
     'anymail',
+    'ls.joyous',
     'django_social_share',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -224,3 +225,5 @@ WAGTAILIMAGES_IMAGE_MODEL = 'photos.Photo'
 RECAPTCHA_PUBLIC_KEY = RECAPTCHA_SITE_KEY
 RECAPTCHA_PRIVATE_KEY = CAPTCHA_SECRET_KEY
 NOCAPTCHA = True
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
