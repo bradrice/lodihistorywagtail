@@ -227,4 +227,4 @@ RECAPTCHA_PRIVATE_KEY = CAPTCHA_SECRET_KEY
 NOCAPTCHA = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-JOYOUS_THEME_CSS = "/static/joyous/css/joyous_forest_theme.css"
+JOYOUS_THEME_CSS = "https://static.lodiharrisvillehistorical.org/joyous/css/joyous_forest_theme.css"
