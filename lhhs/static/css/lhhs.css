@@ -231,3 +231,7 @@ a.doc-link {
     max-width: 100%;
     height: auto;
 }
+
+.joy-content {
+    padding: 1em;
+}
