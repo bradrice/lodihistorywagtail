@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-import wagtail.core.fields
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -30,13 +30,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='homepage',
             name='left_col',
-            field=wagtail.core.fields.RichTextField(default='left col'),
+            field=wagtail.fields.RichTextField(default='left col'),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name='homepage',
             name='right_col',
-            field=wagtail.core.fields.RichTextField(default='right col'),
+            field=wagtail.fields.RichTextField(default='right col'),
             preserve_default=False,
         ),
     ]

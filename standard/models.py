@@ -1,11 +1,10 @@
 """Standard page."""
 from django.db import models
 
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
-from wagtail.core.models import Page
-from wagtail.core.fields import StreamField
+from wagtail.admin.panels import FieldPanel 
+from wagtail.models import Page
+from wagtail.fields import StreamField
 from streams import blocks
-from wagtail.images.edit_handlers import ImageChooserPanel
 
 
 class StandardPage(Page):
@@ -21,6 +20,7 @@ class StandardPage(Page):
         ],
         null=True,
         blank=True,
+        use_json_field=True
     )
     page_image = models.ForeignKey(
         "wagtailimages.Image",
@@ -34,8 +34,8 @@ class StandardPage(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel("subtitle"),
-        ImageChooserPanel("page_image"),
-        StreamFieldPanel("content"),
+        FieldPanel("page_image"),
+        FieldPanel("content"),
     ]
 
     class Meta:  # noqa 

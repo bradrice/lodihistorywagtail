@@ -1,16 +1,14 @@
 from django.db import models
 from django.shortcuts import render, redirect
 from django import forms
-from wagtail.core.models import Page
-from wagtail.core.fields import RichTextField, StreamField
+from wagtail.models import Page
+from wagtail.fields import RichTextField, StreamField
 from streams import blocks
-from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel, StreamFieldPanel
+from wagtail.admin.panels import FieldPanel, PageChooserPanel 
 from wagtail.images.models import Image, AbstractImage, AbstractRendition
-from wagtail.images.edit_handlers import ImageChooserPanel
 from modelcluster.fields import ParentalKey
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from wagtail.snippets.models import register_snippet
-from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.contrib.routable_page.models import route, RoutablePageMixin
 from wagtail.contrib.redirects.models import Redirect
 
@@ -72,12 +70,12 @@ class PhotosListingPage(RoutablePageMixin, Page):
     body = StreamField(
         [
         ('photo_category', blocks.PhotoCategoryBlock())
-        ], null=True, blank=True
+        ], null=True, blank=True, use_json_field=True
         )
 
     content_panels = Page.content_panels + [
         FieldPanel("subtitle"),
-        StreamFieldPanel("body")
+        FieldPanel("body")
     ]
 
     @route(r"^collection/(?P<cat_slug>[-\w]*)/$", name="category_view")

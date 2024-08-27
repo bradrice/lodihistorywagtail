@@ -60,9 +60,7 @@ INSTALLED_APPS = [
     'nav',
     'photos',
     'articles',
-    'contact',
     'anymail',
-    'ls.joyous',
     'django_social_share',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -75,11 +73,12 @@ INSTALLED_APPS = [
     'wagtail.images',
     'wagtail.search',
     'wagtail.admin',
-    'wagtail.core',
+    'wagtail',
     'corsheaders',
     'modelcluster',
     'taggit',
     'widget_tweaks',
+    'wagtail.contrib.search_promotions',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -88,8 +87,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'captcha',
-    'wagtailcaptcha'
+    'django_recaptcha',
 ]
 
 MIDDLEWARE = [
@@ -150,7 +148,7 @@ DATABASES = {
         'USER': DB_USER,
         'PASSWORD': DB_PW,
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5433',
     }
 }
 
@@ -218,7 +216,7 @@ WAGTAIL_SITE_NAME = "lhhs"
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = 'http://example.com'
+WAGTAILADMIN_BASE_URL = "https://lodiharrisvillehistorical.org/"
 
 WAGTAILIMAGES_IMAGE_MODEL = 'photos.Photo'
 

@@ -3,7 +3,7 @@
 from django.db import migrations, models
 import django.db.models.deletion
 import streams.blocks
-import wagtail.core.fields
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
             name='ArticleListingPage',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
-                ('content', wagtail.core.fields.StreamField([('full_richtext', streams.blocks.RichtextBlock())], blank=True, null=True)),
+                ('content', wagtail.fields.StreamField([('full_richtext', streams.blocks.RichtextBlock())], blank=True, null=True)),
                 ('subtitle', models.CharField(blank=True, max_length=100, null=True)),
             ],
             options={
