@@ -5,10 +5,8 @@ beautifulsoup4==4.8.2
 certifi==2020.12.5
 chardet==4.0.0
 convertdate==2.4.0
-defusedxml==0.7.1
-Django==4.2.15
-django-admin-sortable==2.3
-django-admin-sortable2==1.0.3
+Django>=5.0
+django-admin-sortable>=2.3
 django-anymail==8.1
 django-cors-headers==3.6.0
 django-extensions==3.1.0
